@@ -10,14 +10,14 @@ resource "aws_instance" "example" {
         security_groups = ["sg-74f26f1f"]
                 associate_public_ip_address = "true"
         tags {
-         Name = "jai-tera-form"
+         Name = "jai-teraform-test"
 
         }
         user_data = "${file("./apache.sh")}"
 
 }
 resource "aws_elb" "example" {
-  name               = "terra-elb"
+  name               = "terraform-elb"
   subnets = ["subnet-18008455"]
   security_groups = ["sg-74f26f1f"]
 
@@ -47,7 +47,7 @@ resource "aws_elb" "example" {
   connection_draining_timeout = 400
   
   tags {
-    Name = "example-terraform-elb"
+    Name = "example-terraformelb"
   }
 }
 
