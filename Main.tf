@@ -1,13 +1,14 @@
 provider "aws" {
-        region = "ap-south-1"
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
+  region     = "${var.region}"
 }
-
 resource "aws_instance" "example" {
-        ami = "ami-efa5fe80"
-        instance_type = "t2.micro"
-        key_name = "jai_terraform"
-                subnet_id = "subnet-18008455"
-        security_groups = ["sg-74f26f1f"]
+        ami = "${var.ami}"
+        instance_type = "${var.instance_type}"
+        key_name = "${var.key_name}"
+                subnet_id = "${var.ec2_subnet}"
+        security_groups = "${var.ec2_security_groups}"
                 associate_public_ip_address = "true"
         tags {
          Name = "jai-teraform-test"
@@ -18,8 +19,8 @@ resource "aws_instance" "example" {
 }
 resource "aws_elb" "example" {
   name               = "terraform-elb"
-  subnets = ["subnet-18008455"]
-  security_groups = ["sg-74f26f1f"]
+  subnets = "${var.elb_subnet}"
+  security_groups = "${var.elb_security_groups}"
 
 
 
