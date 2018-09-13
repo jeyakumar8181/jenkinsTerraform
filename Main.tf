@@ -5,8 +5,8 @@ provider "aws" {
 }
 resource "aws_instance" "example" {
         ami = "${var.ami}"
-        instance_type = "t2.micro"
-        key_name = "jaiebizon"
+        instance_type = "${var.instance_type}"
+        key_name = "{var.key_name}"
                 subnet_id = "subnet-43fa8d26"
         security_groups = ["sg-036fc7c1850d60236"]
                 associate_public_ip_address = "true"
