@@ -20,7 +20,7 @@ resource "aws_instance" "example" {
 resource "aws_elb" "example" {
   name               = "terraform-elb"
   subnets = ["subnet-43fa8d26"]
-  security_groups =["sg-036fc7c1850d60236"]
+  security_groups =["${var.elb_security_groups}"]
 
 
 
