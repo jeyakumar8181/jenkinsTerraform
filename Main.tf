@@ -8,7 +8,7 @@ resource "aws_instance" "example" {
         instance_type = "${var.instance_type}"
         key_name = "${var.key_name}"
                 subnet_id = "${var.ec2_subnet}"
-        security_groups = "${var.ec2_security_groups}"
+        security_groups = ["${var.ec2_security_groups}"]
                 associate_public_ip_address = "true"
         tags {
          Name = "jai-teraform-test"
