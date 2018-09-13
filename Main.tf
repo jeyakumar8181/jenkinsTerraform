@@ -7,7 +7,7 @@ resource "aws_instance" "example" {
         ami = "${var.ami}"
         instance_type = "${var.instance_type}"
         key_name = "${var.key_name}"
-                subnet_id = "subnet-43fa8d26"
+                subnet_id = "${var.ec2_subnet}"
         security_groups = ["${var.ec2_security_groups}"]
                 associate_public_ip_address = "true"
         tags {
@@ -19,7 +19,7 @@ resource "aws_instance" "example" {
 }
 resource "aws_elb" "example" {
   name               = "terraform-elb"
-  subnets = ["subnet-43fa8d26"]
+  subnets = ["${var.elb_subnet}"]
   security_groups =["${var.elb_security_groups}"]
 
 
