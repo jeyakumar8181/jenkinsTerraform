@@ -2,7 +2,7 @@ variable "access_key" {}
 variable "secret_key" {}
 variable "region" {}
 
-variable "ec2_subnet" {}
+
 variable "ami" {}
 variable "instance_type" {}
 variable  "key_name" {} 
